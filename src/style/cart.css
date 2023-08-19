@@ -1,0 +1,22 @@
+.cartContainer{
+    display: flex;
+    width: 80%;
+    margin: 2rem 10%;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartparentcontainer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartimg{
+    width: 50%;
+    max-width: 400px;
+    padding-bottom: 2rem;
+}
+

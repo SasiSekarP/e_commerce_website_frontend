@@ -1,0 +1,68 @@
+.homeContainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.homecardcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 3rem;
+    padding: 1rem 0px;
+    width: 80%;
+    margin: auto;
+}
+
+.productscrolearea{
+    overflow-y: scroll;
+    margin: 1rem 0px;
+}
+
+.cardparentcontainer{
+    width: 300px;
+    margin: auto;
+}
+
+.productimg{
+    border-radius: 7px;
+}
+
+.cardtitle{
+    padding: 1rem 0px;
+    font-weight: 600;
+    color: black;
+}
+
+.pricetag{
+    padding: 1rem 0px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.ratingbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardlastrow{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marginofnavbar{
+    margin-top: 3rem;
+}
+
+.dealsheading{
+    color: rgb(56, 56, 56);
+}
+
+.brand{
+    color: gray;
+}
+

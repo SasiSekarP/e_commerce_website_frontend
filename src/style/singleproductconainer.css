@@ -1,0 +1,28 @@
+.singleproductcontainer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewcount{
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.countdiv{
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.countchangingbtn{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: solid 1px black;
+    font-weight: 900;
+}

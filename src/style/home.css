@@ -1,0 +1,49 @@
+.homepage{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.homepagerow{
+    display: flex;
+    padding: 5rem 0px;
+    width: 80%;
+    margin: auto;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepageimg{
+    width: 40%;
+    margin: auto;
+}
+
+.homeparacontainer{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: fit-content;
+    padding: 2rem 0px;
+}
+
+.bluebtn2{
+    padding: 10px 1rem;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepagepara{
+    font-size: 1.2rem;
+    padding: 3rem 0px;
+    text-align: justify;
+}
