@@ -1,41 +1,59 @@
-import { Link } from "react-router-dom";
-
 import Navbar from "./navbar";
 import Cartcard from "./cartcard";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const data = {
-    title: "Wide Bowknot Hat",
-    brand: "MAJIK",
-    price: 288,
-    id: 1,
-    image_url:
-      "https://assets.ccbp.in/frontend/react-js/ecommerce/clothes-cap.png",
-    count: 1,
+  const [cartitem, setcartitem] = useState([]);
+
+  const token = Cookies.get("token");
+
+  const apicall = async () => {
+    const url = "http://localhost:4000/cartdata";
+    const option = {
+      headers: {
+        authorization: token,
+        "content-type": "application/json",
+      },
+      method: "GET",
+    };
+
+    const response = await fetch(url, option);
+    const data = await response.json();
+    setcartitem(data);
   };
-  //   return (
-  //     <div className="cartparentcontainer">
-  //       <Navbar />
-  //       <div className="cartContainer">
-  //         <img
-  //           className="cartimg"
-  //           src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png"
-  //           alt="img"
-  //         />
-  //         <Link to="/product" className="bluebtn2">
-  //           shop now
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
+
+  useEffect(() => {
+    apicall();
+  }, []);
 
   return (
     <div className="cartparentcontainer">
       <Navbar />
-      <div className="cartarea">
-        <Cartcard data={data} />
-        <Cartcard data={data} />
-      </div>
+      {cartitem.length > 0 && (
+        <div className="cartarea">
+          {cartitem.map((data) => {
+            return (
+              <div key={data._id}>
+                <Cartcard data={data} />
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {cartitem.length === 0 && (
+        <div className="cartarea2">
+          <img
+            className="cartnodataimage"
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png"
+            alt="nodata"
+          />
+          <Link to="/product" className="bluebtn2">
+            Shop now
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

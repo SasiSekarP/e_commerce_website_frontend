@@ -1,11 +1,14 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Cartcard = (props) => {
-  const { title, brand, price, image_url, count } = props.data;
+  const { title, brand, price, image_url, count, _id } = props.data;
 
   const [counttemp, setcounttemp] = useState(count);
+
+  const token = Cookies.get("token");
 
   const addcount = () => {
     setcounttemp(counttemp + 1);
@@ -16,6 +19,24 @@ const Cartcard = (props) => {
       setcounttemp(counttemp - 1);
     }
   };
+
+  const removefromcart = async () => {
+    const url = `http://localhost:4000/removefromcart/${_id}`;
+    const option = {
+      headers: {
+        authorization: token,
+        "content-type": "application/json",
+      },
+      method: "DELETE",
+    };
+    const response = await fetch(url, option);
+    const data = await response.json();
+    console.log(data);
+    if (data.status === "success") {
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="cardcard">
       <div>
@@ -39,7 +60,7 @@ const Cartcard = (props) => {
         </button>
       </div>
       <div className="font1point2 cartprice">Rs.{counttemp * price}/-</div>
-      <button type="button" className="closebtn">
+      <button onClick={removefromcart} type="button" className="closebtn">
         <AiFillCloseCircle />
       </button>
     </div>

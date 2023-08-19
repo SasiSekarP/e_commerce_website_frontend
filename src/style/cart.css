@@ -20,3 +20,17 @@
     padding-bottom: 2rem;
 }
 
+.cartnodataimage{
+    width: 50%;
+    margin: 0px auto 2rem;
+}
+
+.cartarea2{
+    flex: 1;
+    width: 80%;
+    margin: 0px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

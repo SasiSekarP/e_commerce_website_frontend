@@ -1,28 +1,31 @@
 .homepage{
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .homepagerow{
     display: flex;
-    padding: 5rem 0px;
-    width: 80%;
+    padding: 5rem 10%;
+    width: 100%;
     margin: auto;
     column-gap: 2rem;
     flex-wrap: wrap;
     flex: 1;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .homepageimg{
     width: 40%;
     margin: auto;
+    min-width: 300px;
 }
 
 .homeparacontainer{
     width: 45%;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -46,4 +49,19 @@
     font-size: 1.2rem;
     padding: 3rem 0px;
     text-align: justify;
+}
+
+@media screen and (max-width: 490px) {
+    .homepagerow{
+        flex-direction: column-reverse;
+    }
+
+    .homepageimg{
+        padding: 0px;
+        width: 300px;
+    }
+
+    .homeparacontainer{
+        padding: 0px;
+    }
 }

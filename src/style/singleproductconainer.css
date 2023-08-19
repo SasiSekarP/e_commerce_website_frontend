@@ -1,5 +1,5 @@
 .singleproductcontainer{
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -25,4 +25,16 @@
     background-color: transparent;
     border: solid 1px black;
     font-weight: 900;
+}
+
+.singleproductdetailarea{
+    display: flex;
+    padding: 5rem 10%;
+    width: 100%;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
 }

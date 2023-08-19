@@ -1,7 +1,23 @@
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { FaOpencart } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const token = Cookies.get("token");
+
+  const removetoken = () => {
+    Cookies.remove("token");
+    navigate("/login", { replace: true });
+  };
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login", { replace: true });
+    }
+  }, [token, navigate]);
   return (
     <div className="navbarcontainer">
       <div className="logocontainer">
@@ -32,7 +48,9 @@ export default function Navbar() {
         >
           Cart
         </NavLink>
-        <button className="bluebtn links">Logout</button>
+        <button className="bluebtn links" type="button" onClick={removetoken}>
+          Logout
+        </button>
       </div>
     </div>
   );
